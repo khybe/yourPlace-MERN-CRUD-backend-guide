@@ -1,20 +1,11 @@
+const uuid = require("uuid").v4;
+
 const HttpError = require("../models/http-error");
 
 const DUMMY_PLACES = [
   {
     id: "p1",
     title: "Empire State Building",
-    description: "One of the tallest sky scrapers in the world!",
-    location: {
-      lat: 40.7484405,
-      lng: -73.9878531,
-    },
-    address: "20 W 34th St., New York, NY 10001, United States",
-    creator: "u1",
-  },
-  {
-    id: "p2",
-    title: "Emp. State Building",
     description: "One of the tallest sky scrapers in the world!",
     location: {
       lat: 40.7484405,
@@ -54,5 +45,23 @@ const getPlaceByUserId = (req, res, next) => {
   res.json({ place });
 };
 
+const createPlace = (req, res, next) => {
+  const { title, description, coordinates, address, creator } = req.body;
+
+  const createdPlace = {
+    id: uuid(),
+    title,
+    description,
+    location: coordinates,
+    address,
+    creator,
+  };
+
+  DUMMY_PLACES.push(createdPlace);
+
+  res.status(201).json({ place: createdPlace });
+};
+
 exports.getPlaceById = getPlaceById;
 exports.getPlaceByUserId = getPlaceByUserId;
+exports.createPlace = createPlace;
