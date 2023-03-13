@@ -37,7 +37,7 @@ const signup = async (req, res, next) => {
     );
   }
 
-  const { name, email, password, places } = req.body;
+  const { name, email, password } = req.body;
 
   let existingUser;
   try {
@@ -64,7 +64,7 @@ const signup = async (req, res, next) => {
     image:
       "https://www.shutterstock.com/image-vector/silhouette-people-unknown-male-person-260nw-1372192277.jpg",
     password: password,
-    places: places,
+    places: [],
   });
 
   try {
