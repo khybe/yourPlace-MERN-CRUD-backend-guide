@@ -28,6 +28,7 @@ app.use((error, req, res, next) => {
   res.json({ message: error.message || "An unknown error occured!" });
 });
 
+mongoose.set("strictQuery", false);
 mongoose
   .connect(
     "mongodb+srv://sabina:sabina123@cluster0.ssnre.mongodb.net/places?retryWrites=true&w=majority"
