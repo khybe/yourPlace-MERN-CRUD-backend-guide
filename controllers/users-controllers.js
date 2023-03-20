@@ -51,8 +51,7 @@ const signup = async (req, res, next) => {
   const createdUser = new User({
     name: name,
     email: email,
-    image:
-      "https://www.shutterstock.com/image-vector/silhouette-people-unknown-male-person-260nw-1372192277.jpg",
+    image: req.file.path,
     password: password,
     places: [],
   });
