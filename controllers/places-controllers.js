@@ -79,8 +79,7 @@ const createPlace = async (req, res, next) => {
     description,
     address,
     location: coordinates,
-    image:
-      "https://upload.wikimedia.org/wikipedia/commons/f/f1/Parn%C3%ADk_Vy%C5%A1ehrad_pod_Vy%C5%A1ehradem.jpg",
+    image: req.file.path,
     creator,
   });
 
