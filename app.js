@@ -52,7 +52,7 @@ app.use((error, req, res, next) => {
 mongoose.set("strictQuery", false);
 mongoose
   .connect(
-    "mongodb+srv://khesraw:dataBasePass@cluster0.ssnre.mongodb.net/mern?retryWrites=true&w=majority"
+    `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@cluster0.ssnre.mongodb.net/${process.env.DB_NAME}?retryWrites=true&w=majority`
   )
   .then(() => {
     app.listen(5000);
